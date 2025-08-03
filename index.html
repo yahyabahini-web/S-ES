@@ -3,397 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations Sidahmed & Esma!</title>
+    <title>Congratulations Graduates!</title>
     <style>
-        /* Base Styles */
-        * {
+        :root {
+            --primary: #6a4c93;
+            --secondary: #8a5a44;
+            --accent: #f8c537;
+            --light: #f9f7f3;
+            --dark: #2a2d34;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--light) 0%, #e6e3dd 100%);
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: var(--dark);
         }
 
-        /* Header */
-        .header {
-            margin-bottom: 40px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            color: #d4af37;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-            font-family: 'Great Vibes', cursive;
-        }
-
-        .header h2 {
-            font-size: 2rem;
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Couple Photo */
-        .couple-photo {
-            margin: 60px auto;
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-            animation: slideUp 1s ease-in-out;
-        }
-
-        .couple-image {
-            width: 100%;
+        .container {
+            background-color: white;
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            padding: 40px;
+            max-width: 900px;
+            width: 90%;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .graduates {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 30px;
+        }
+
+        .graduate {
+            margin: 10px;
+            padding: 25px 20px;
+            background: white;
+            border-radius: 12px;
+            width: 220px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graduate::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
-        .couple-image:hover {
-            transform: scale(1.02);
+        .graduate:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .couple-names {
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(212, 175, 55, 0.9);
-            color: white;
-            padding: 10px 30px;
-            border-radius: 30px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            white-space: nowrap;
-            font-family: 'Great Vibes', cursive;
+        .graduate:hover::after {
+            transform: scaleX(1);
         }
 
-        /* Message Section */
-        .message {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
+        .graduate-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 60px auto;
-            max-width: 800px;
-            position: relative;
-            animation: fadeIn 1.5s ease-in-out;
+            transition: all 0.3s ease;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
         }
 
-        .message:before {
-            content: '"';
-            font-size: 120px;
-            color: rgba(212, 175, 55, 0.1);
-            position: absolute;
-            top: -30px;
-            left: 20px;
-            font-family: serif;
+        .graduate:hover .graduate-image {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .message p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
+        .graduate h3 {
+            color: var(--primary);
+            margin: 15px 0 5px;
+            font-size: 1.4rem;
         }
 
-        .signature {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
-            color: #d4af37;
-            margin-top: 20px;
+        .graduate p {
+            color: var(--secondary);
+            font-weight: 500;
+            margin: 0;
         }
 
-        /* Anthem Section */
-        .anthem {
-            margin: 60px auto;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease-in-out;
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            opacity: 0;
+            animation: confetti-fall 5s linear infinite;
         }
 
-        .anthem h3 {
-            font-size: 1.8rem;
-            color: #d4af37;
-            margin-bottom: 20px;
-            font-family: 'Great Vibes', cursive;
-        }
-
-        .anthem p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .anthem .lyrics {
-            font-style: italic;
-            color: #777;
-            margin: 25px 0;
-            line-height: 1.8;
-        }
-
-        /* Wishes Section */
-        .wishes {
-            margin-top: 60px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .wishes h3 {
-            font-size: 2rem;
-            color: #d4af37;
-            margin-bottom: 20px;
-            font-family: 'Great Vibes', cursive;
-        }
-
-        .wishes p {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto 15px;
-            line-height: 1.8;
-        }
-
-        .heart {
-            color: #ff6b6b;
-            font-size: 1.5rem;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 80px;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(1);
                 opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .diploma-icon {
+            font-size: 5rem;
+            color: var(--accent);
+            margin: 10px 0 25px;
+            animation: bounce 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
                 transform: translateY(0);
             }
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
+        .message {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin: 30px auto;
+            max-width: 700px;
+            color: var(--dark);
         }
 
-        /* Floating Hearts */
-        .hearts {
-            position: fixed;
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(106, 76, 147, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(106, 76, 147, 0.4);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover::after {
+            opacity: 1;
+        }
+
+        .floating-diploma {
+            position: fixed;
+            font-size: 2.5rem;
+            animation: floating 15s linear infinite;
+            opacity: 0.8;
             z-index: -1;
         }
 
-        .heart-shape {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 107, 107, 0.5);
-            transform: rotate(45deg);
-            animation: float 10s linear infinite;
-            opacity: 0;
-        }
-
-        .heart-shape:before, .heart-shape:after {
-            content: '';
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 107, 107, 0.5);
-            border-radius: 50%;
-            position: absolute;
-        }
-
-        .heart-shape:before {
-            top: -10px;
-            left: 0;
-        }
-
-        .heart-shape:after {
-            top: 0;
-            left: -10px;
-        }
-
-        @keyframes float {
+        @keyframes floating {
             0% {
-                transform: rotate(45deg) translateY(0) translateX(0);
-                opacity: 0;
+                transform: translate(0, 0) rotate(0deg);
             }
-            10% {
-                opacity: 1;
+            25% {
+                transform: translate(50vw, 25vh) rotate(90deg);
             }
-            90% {
-                opacity: 1;
+            50% {
+                transform: translate(30vw, 50vh) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20vw, 75vh) rotate(270deg);
             }
             100% {
-                transform: rotate(45deg) translateY(-100vh) translateX(100vw);
-                opacity: 0;
+                transform: translate(0, 100vh) rotate(360deg);
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2.2rem;
             }
-            
-            .header h2 {
-                font-size: 1.5rem;
+            .graduate {
+                width: 160px;
+                padding: 20px 15px;
             }
-            
-            .couple-names {
-                font-size: 1.2rem;
-                padding: 8px 20px;
-            }
-            
-            .message {
-                padding: 30px 20px;
-            }
-            
-            .message p {
-                font-size: 1.1rem;
+            .graduate-image {
+                width: 140px;
+                height: 140px;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating Hearts Background -->
-    <div class="hearts" id="hearts"></div>
-
     <div class="container">
-        <header class="header">
-            <h1>Congratulations!</h1>
-            <h2>Sidahmed & Esma</h2>
-            <p>On your beautiful union and the beginning of your lifelong journey together</p>
-        </header>
-
-        <div class="couple-photo">
-            <!-- Replace with actual couple photo -->
-            <img src="S&E.jpg.png" alt="Sidahmed and Esma" class="couple-image">
-            <div class="couple-names">Sidahmed & Esma</div>
-        </div>
-
-        <div class="message">
-            <p>Today we celebrate the love that has brought you together. May your marriage be filled with joy, laughter, and endless love. As you embark on this beautiful journey side by side, may you find strength in each other during challenges and multiply your happiness in moments of joy.</p>
-            
-            <p>Remember that the strongest marriages are built on teamwork, mutual respect, and a never-ending love story. May your love continue to grow with each passing year, and may you always find comfort in each other's arms.</p>
-            
-            <div class="signature">With love and best wishes</div>
-        </div>
-
-        <div class="anthem">
-            <h3>Your Love Anthem</h3>
-            <p>Every great love deserves its own anthem. Here's a song that celebrates your union:</p>
-            
-            <div class="lyrics">
-                <p>"All of me loves all of you<br>
-                Love your curves and all your edges<br>
-                All your perfect imperfections<br>
-                Give your all to me<br>
-                I'll give my all to you"</p>
-                <p>- John Legend, "All of Me"</p>
+        <div class="diploma-icon">🎓</div>
+        <h1>Congratulations!</h1>
+        <p class="subtitle">BAC Diploma Achievers 2025</p>
+        
+        <p class="message">
+           Nevisse,rym and baba Congratulations! i'm really proud of you all and wishing you the best for what comes next, tewfii9 inchallah vtroukm
+        </p>
+        
+        <div class="graduates">
+            <div class="graduate">
+                <!-- Fisha's placeholder image -->
+                <img src="fisha.jpg" alt="Fisha" class="graduate-image">
+                <h3>Fisha</h3>
+                <p>BAC Graduate</p>
             </div>
-            
-            <p>May this song remind you of the complete love you share - accepting and cherishing every part of each other.</p>
+            <div class="graduate">
+                <!-- Rym's placeholder image -->
+                <img src="rym.jpg" alt="Rym" class="graduate-image">
+                <h3>Rym</h3>
+                <p>BAC Graduate</p>
+            </div>
+            <div class="graduate">
+                <!-- Baba's placeholder image -->
+                <img src="baba.jpg" alt="Baba" class="graduate-image">
+                <h3>Baba</h3>
+                <p>BAC Graduate</p>
+            </div>
         </div>
-
-        <div class="wishes">
-            <h3>Our Heartfelt Wishes</h3>
-            <p>May your love shine brighter with each passing year <span class="heart">❤</span></p>
-            <p>May you grow old together, hand in hand <span class="heart">❤</span></p>
-            <p>May your home be filled with laughter and joy <span class="heart">❤</span></p>
-            <p>May you always find comfort in each other's embrace <span class="heart">❤</span></p>
-            <p>May your bond grow stronger with every challenge you face together <span class="heart">❤</span></p>
-        </div>
-
-        <footer class="footer">
-            <p>Created with love to celebrate Sidahmed & Esma's marriage - May your love story be long and beautiful</p>
-        </footer>
+        
+        <button id="celebrateBtn">Celebrate Their Achievement!</button>
     </div>
 
     <script>
-        // Create floating hearts
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const heartCount = 15;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial confetti
+            createConfetti();
             
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart-shape');
+            // Create floating diplomas
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => createFloatingDiploma(), i * 1800);
+            }
+            
+            // Celebration button
+            const btn = document.getElementById('celebrateBtn');
+            btn.addEventListener('click', function() {
+                createConfetti();
                 
-                // Random position
-                const left = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const duration = 10 + Math.random() * 10;
+                // Add temporary celebration class to button
+                btn.classList.add('celebrating');
+                setTimeout(() => btn.classList.remove('celebrating'), 1000);
                 
-                heart.style.left = ${left}vw;
-                heart.style.bottom = -20px;
-                heart.style.animationDelay = ${delay}s;
-                heart.style.animationDuration = ${duration}s;
+                // Play celebration sound
+                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-happy-crowd-celebration-1837.mp3');
+                audio.volume = 0.3;
+                audio.play().catch(e => console.log("Audio play prevented:", e));
+            });
+        });
+        
+        function createConfetti() {
+            const shapes = ['🎓', '🌟', '🎉', '✨', '🥳', '🏆'];
+            const colors = ['#6a4c93', '#8a5a44', '#f8c537', '#2a2d34', '#4a6baf', '#e91e63', '#009688'];
+            
+            for (let i = 0; i < 120; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
                 
-                heartsContainer.appendChild(heart);
+                // Randomly decide if it's a shape or colored square
+                if (Math.random() > 0.5) {
+                    confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                    confetti.style.width = 'auto';
+                    confetti.style.height = 'auto';
+                    confetti.style.background = 'transparent';
+                } else {
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = Math.random() * 12 + 6 + 'px';
+                    confetti.style.height = Math.random() * 12 + 6 + 'px';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                }
+                
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
             }
         }
         
-        // Initialize
-        window.onload = function() {
-            createHearts();
+        function createFloatingDiploma() {
+            const diploma = document.createElement('div');
+            diploma.className = 'floating-diploma';
+            diploma.textContent = '🎓';
+            diploma.style.left = Math.random() * 100 + 'vw';
+            diploma.style.top = '-50px';
+            diploma.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            diploma.style.animationDelay = Math.random() * 5 + 's';
             
-            // Create more hearts periodically
-            setInterval(() => {
-                const hearts = document.querySelectorAll('.heart-shape');
-                if (hearts.length < 30) {
-                    createHearts();
-                }
-            }, 3000);
-        };
+            document.body.appendChild(diploma);
+            
+            // Remove after animation
+            setTimeout(() => {
+                diploma.remove();
+            }, 20000);
+        }
     </script>
 </body>
 </html>
